@@ -5,3 +5,7 @@
 .show {
     display: block;
 }
+
+.timer {
+    text-align: right;
+}
