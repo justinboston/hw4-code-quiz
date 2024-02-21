@@ -6,18 +6,23 @@ var choicesEl = document.querySelector("#choices");
 var resultEl = document.querySelector("#result");
 var timerEl = document.querySelector("#timer");
 
-var timer = 15;
+var timer = 30;
 
 var question = [
   {
-    question: "this is not a character in harry potter",
-    choices: ["harry", "hermione", "ron", "bugs bunny"],
-    answer: "bugs bunny",
+    question: "Which of the following is not a programming language?",
+    choices: ["JavaScript", "HTML", "CSS", "Spanish"],
+    answer: "Spanish",
   },
   {
-    question: "how many harry potter movies are there",
-    choices: ["1", "2", "3", "8"],
-    answer: "8",
+    question: "___________ is largest provider of internet hosting for software and web development code?",
+    choices: ["Google Drive", "Dropbox", "GitHub", "AWS"],
+    answer: "GitHub",
+  },
+  {
+    question: "A user story consists of 3 main components. Which of the following is not a typical component of a user story?",
+    choices: ["The type of person using your application", "Deadline / Due Date", "What the user wants from the application.", "Why the user wants what they want (i.e., what problem are they trying to solve?)"],
+    answer: "Deadline / Due Date",
   },
 ];
 
@@ -38,13 +43,13 @@ function startGame() {
   intro.setAttribute("class", "hide");
   updateQuestion();
   questions.setAttribute("class", "show");
-  timerEl.setAttribute("class", "show");
+  timerEl.setAttribute("class", "timer");
   startTimer();
 }
 
 function updateQuestion() {
   if (questionIndex === question.length) {
-    setTimeout(endGame, 1500);
+    setTimeout(endGame, 3000);
     return;
   }
 
@@ -60,8 +65,8 @@ function updateQuestion() {
 
 function endGame() {
   questions.setAttribute("class", "hide");
-  resultEl.textContent = "game over";
-  timerEl.setAttribute("class", "hide");
+  resultEl.textContent = "Quiz Over";
+  timerEl.setAttribute("class", "timer");
 }
 
 choicesEl.addEventListener("click", function (event) {
@@ -77,7 +82,7 @@ choicesEl.addEventListener("click", function (event) {
 
     questionIndex++;
 
-    setTimeout(updateQuestion, 1500);
+    setTimeout(updateQuestion, 3000);
   }
 });
 
